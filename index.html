@@ -87,7 +87,7 @@ body {
   width: 100%;
   height: 120px;
   position: sticky;
-  background-color: #2471A3;
+  background-color: rgb(86, 86, 122);
   overflow-y: auto;
   padding: 10px;
   z-index: 1;
@@ -179,7 +179,7 @@ body {
   <div id="name_box1">
     <h1>INFINITYCHAT</h1>
   <div id="name_box2">
-    <input id="input_name" placeholder="Enter your name">
+    <input id="input_name" placeholder="Enter your USN">
     <button id="btn">Submit</button>
   </div>
   </div>
@@ -203,10 +203,12 @@ body {
     var topcontainer = document.getElementById('top_area');
     
     submitbutton.addEventListener('click', e=>{
+      const val = inputname.value.toString();
+      const pattern = /^(4ni20ec|4NI20EC)\d{3}$/;
       e.preventDefault();
-      if(!inputname.value)
+      if(!pattern.test(val))
       {
-        alert("Enter a name")
+        alert("Enter an authorized USN")
       }
       else {
         const name = inputname.value;
